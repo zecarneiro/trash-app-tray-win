@@ -16,7 +16,7 @@ import (
 
 const (
 	APP_NAME     = "Recycle Bin"
-	MONITOR_TIME = 3
+	MONITOR_TIME = 2
 )
 
 var (
@@ -61,6 +61,7 @@ func buildTrayApp() {
 		shell32 := syscall.NewLazyDLL("shell32.dll")
 		shEmptyRecycleBin := shell32.NewProc("SHEmptyRecycleBinW")
 		_, _, _ = shEmptyRecycleBin.Call(0, 0, 0)
+		updateState()
 	})
 	systray.AddSeparator()
 	buildThemeMenu()

@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 # APP Info
 NAME := trash-app-tray-win
-APP_VERSION := 1.0.0
+APP_VERSION := 1.0.1
 DISPLAY_NAME := "Trash App Tray"
 # Make file data
 GO := go
