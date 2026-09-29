@@ -1,0 +1,3 @@
+[submodule "libs/golangutils"]
+	path = libs/golangutils
+	url = https://github.com/zecarneiro/golangutils.git
