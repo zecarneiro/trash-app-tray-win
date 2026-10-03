@@ -25,7 +25,7 @@ var (
 
 func isRecycleBinFull() bool {
 	cmdStr := "(New-Object -ComObject Shell.Application).Namespace(0xa).Items().Count"
-	output, err := exe.Exec(models.Command{Cmd: cmdStr, Verbose: false, UseShell: true, ShellToUse: enums.PowerShell})
+	output, err := exe.Exec(models.Command{Cmd: cmdStr, Verbose: false, UseShell: true, ShellToUse: enums.PowerShell, Background: true})
 	if err != nil {
 		return false
 	}
@@ -54,7 +54,7 @@ func showMenu(menu systray.IMenu) {
 
 func buildTrayApp() {
 	systray.AddMenuItem("Open Recycle Bin", "Open Recycle Bin").Click(func() {
-		exe.ExecRealTime(models.Command{Cmd: "explorer.exe shell:RecycleBinFolder", Verbose: false, UseShell: true, IsAsync: true})
+		exe.ExecRealTime(models.Command{Cmd: "explorer.exe shell:RecycleBinFolder", Verbose: false, UseShell: true, IsAsync: true, Background: true})
 	})
 	systray.AddMenuItem("Empty Recycle Bin", "Empty Recycle Bin").Click(func() {
 		// Call Windows API (Shell32.dll) to clean Recycle Bin
