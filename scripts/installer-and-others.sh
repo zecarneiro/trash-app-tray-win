@@ -3,6 +3,10 @@
 ROOT_DIR="$1"
 RELEASE_DIR="$2"
 INSTALLERS_DIR="$ROOT_DIR/scripts/installers"
+IMAGES_DIR="$ROOT_DIR/docs/images"
+
+echo ">>> Copy images..."
+cp "$IMAGES_DIR/logo/win.ico" "$DEPLOY_DIR/win.ico"
 
 echo ">>> Copy installer and uninstaller..."
 SCOOP_INSTALLER="$RELEASE_DIR/$APP_NAME.json"

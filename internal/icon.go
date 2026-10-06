@@ -2,9 +2,13 @@ package internal
 
 import (
 	"bytes"
+	"fmt"
 	"image"
 	"image/color"
 	"image/png"
+	"os"
+
+	"github.com/energye/systray"
 )
 
 // Matriz Pixel-Art exactly of the icon (16x16)
@@ -102,4 +106,17 @@ func generateIconData(isFull bool) []byte {
 	var buf bytes.Buffer
 	_ = png.Encode(&buf, img)
 	return pngToIco(buf.Bytes())
+}
+
+func buildIconMenu() {
+	saveIncon := systray.AddMenuItem("Save Icon", "Save Icon")
+	saveIncon.Click(func() {
+		err := os.WriteFile("favicon.ico", generateIconData(false), 0644)
+		if err != nil {
+			fmt.Println("Erro ao guardar o ícone:", err)
+			return
+		}
+	})
+	saveIncon.Disable()
+	saveIncon.Hide()
 }

@@ -2,14 +2,14 @@ SHELL := /bin/bash
 
 # APP Info
 NAME := trash-app-tray-win
-APP_VERSION := 1.1.5
+APP_VERSION := 1.1.6
 DISPLAY_NAME := "Trash App Tray"
 # Make file data
 GO := go
 ROOT := $(CURDIR)
 SCRIPTS_DIR := $(ROOT)/scripts
 SO_TYPE := "linux"
-RELEASE := "1"
+RELEASE ?= "1"
 
 .PHONY: all build deploy check-deps clean help
 

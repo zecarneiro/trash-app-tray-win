@@ -65,6 +65,7 @@ func buildTrayApp() {
 	})
 	systray.AddSeparator()
 	buildThemeMenu()
+	buildIconMenu()
 	systray.AddMenuItem("Exit", "Exit of the application").Click(func() {
 		systray.Quit()
 	})
